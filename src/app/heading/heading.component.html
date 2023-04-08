@@ -1,0 +1,110 @@
+<div cdkDropListGroup class="container mt-5">
+  <h2>Deals</h2>
+  <div class="form-group" style="display: flex;">
+    <select name="dropdrag" class="form-control" id="select" (change)="onChange($event)">
+      <option value="all" disabled selected>Select Your Search Type</option>
+      <option value="first_name">First Name</option>
+      <option value="last_name">Last Name</option>
+      <option value="email">E-mail</option>
+    </select>
+    <input type="text" class="form-control" id="input" placeholder="Search..." [(ngModel)]="searchText"/>
+  </div>
+  <br>
+    <div class="row">
+    <div cdkDropList
+    (cdkDropListDropped)="onDrop($event,'Potential Value')"
+    [cdkDropListData]="headingDisplay" class="col-lg-2 col-md-6 col-ms-4" style="margin-right: 4%;">
+    <h4>Potential Value</h4>
+    <div *ngFor="let d of headingDisplay | customPipe: searchText" class="mt-3 mb-3">
+      <div cdkDrag *ngIf="d.status == 'Potential Value'" class="box">
+        <h6>{{d.company}}</h6>
+        <h6>{{d.date}}</h6>
+        <h6>{{d.email}}</h6>
+        <h6>{{d.first_name}}</h6>
+        <h6>{{d.last_name}}</h6>
+        <h6>{{d.phone}}</h6>
+        <h6>{{d.state}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{d.id}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{d.probability_status}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{d.status}}</h6>
+      </div>
+    </div>
+  </div>
+  <div  cdkDropList
+  (cdkDropListDropped)="onDrop($event,'Focus')"
+  [cdkDropListData]="headingDisplay" class="col-lg-2 col-md-6 col-ms-4"style="margin-right: 4%;">
+  <h4>Focus</h4>
+  <div *ngFor="let a of headingDisplay | customPipe: searchText" class="mt-3 mb-3">
+        <div cdkDrag *ngIf="a.status == 'Focus'" class="box">
+          <h6>{{a.company}}</h6>
+          <h6>{{a.aate}}</h6>
+          <h6>{{a.email}}</h6>
+          <h6>{{a.first_name}}</h6>
+          <h6>{{a.last_name}}</h6>
+          <h6>{{a.phone}}</h6>
+          <h6>{{a.state}}</h6>
+          <h6 class="btn btn-dark btn-sm mt-2">{{a.id}}</h6>
+          <h6 class="btn btn-dark btn-sm mt-2">{{a.probability_status}}</h6>
+          <h6 class="btn btn-dark btn-sm mt-2">{{a.status}}</h6>
+        </div>
+    </div>
+  </div>
+  <div cdkDropList
+  (cdkDropListDropped)="onDrop($event,'Contact Made')"
+  [cdkDropListData]="headingDisplay" class="col-lg-2 col-md-6 col-ms-4"style="margin-right: 4%;">
+    <h4>Contact Made</h4>
+    <div *ngFor="let a of headingDisplay | customPipe: searchText" class="mt-3 mb-3">
+      <div cdkDrag *ngIf="a.status == 'Contact Made'" class="box">
+        <h6>{{a.company}}</h6>
+        <h6>{{a.aate}}</h6>
+        <h6>{{a.email}}</h6>
+        <h6>{{a.first_name}}</h6>
+        <h6>{{a.last_name}}</h6>
+        <h6>{{a.phone}}</h6>
+        <h6>{{a.state}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.id}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.probability_status}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.status}}</h6>
+      </div>
+    </div>
+  </div>
+  <div cdkDropList
+  (cdkDropListDropped)="onDrop($event,'Offer Sent')"
+  [cdkDropListData]="headingDisplay" class="col-lg-2 col-md-6 col-ms-4"style="margin-right: 4%;">
+    <h4>Offer Sent</h4>
+    <div *ngFor="let a of headingDisplay | customPipe: searchText" class="mt-3 mb-3">
+      <div cdkDrag *ngIf="a.status == 'Offer Sent'" class="box">
+        <h6>{{a.company}}</h6>
+        <h6>{{a.aate}}</h6>
+        <h6>{{a.email}}</h6>
+        <h6>{{a.first_name}}</h6>
+        <h6>{{a.last_name}}</h6>
+        <h6>{{a.phone}}</h6>
+        <h6>{{a.state}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.id}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.probability_status}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.status}}</h6>
+      </div>
+    </div>
+  </div>
+  <div cdkDropList
+  (cdkDropListDropped)="onDrop($event,'Getting Ready')"
+  [cdkDropListData]="headingDisplay" class="col-lg-2 col-md-6 col-ms-4">
+    <h4>Getting Ready</h4>
+    <div *ngFor="let a of headingDisplay | customPipe: searchText" class="mt-3 mb-3">
+      <div cdkDrag *ngIf="a.status == 'Getting Ready'" class="box">
+        <h6>{{a.company}}</h6>
+        <h6>{{a.aate}}</h6>
+        <h6>{{a.email}}</h6>
+        <h6>{{a.first_name}}</h6>
+        <h6>{{a.last_name}}</h6>
+        <h6>{{a.phone}}</h6>
+        <h6>{{a.state}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.id}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.probability_status}}</h6>
+        <h6 class="btn btn-dark btn-sm mt-2">{{a.status}}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
