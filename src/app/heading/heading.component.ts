@@ -1,4 +1,4 @@
-import { Component, ElementRef,Renderer2,OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {ProjectservicesService} from '../service/projectservices.service';
 import { CdkDragDrop,moveItemInArray,transferArrayItem } from '@angular/cdk/drag-drop';
 @Component({
@@ -9,15 +9,10 @@ import { CdkDragDrop,moveItemInArray,transferArrayItem } from '@angular/cdk/drag
 
 export class HeadingComponent implements OnInit {
 
-  constructor(private _service:ProjectservicesService,private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private _service:ProjectservicesService) { }
 
   headingDisplay:any = [];
   searchText!:string;
-  portential_value:any;
-  focus:any;
-  Contact_Made:any;
-  Offer_Sent:any;
-  Getting_Ready:any;
   static val :any;
   onChange(event:any) {
     HeadingComponent.val = event.target.value;
@@ -48,18 +43,6 @@ export class HeadingComponent implements OnInit {
       console.log(result);
       this.headingDisplay = result.deals;
     })
-    // setTimeout(()=>{
-    //   const elementPotential = this.elementRef.nativeElement.querySelector('.Potential_Value');
-    //   this.portential_value = elementPotential.className.split(" ").at(0).split("_").join(" ");
-    //   const elementFocus = this.elementRef.nativeElement.querySelector('.Focus');
-    //   this.focus = elementFocus.className.split(" ").at(0).split("_").join(" ");
-    //   const elementContact = this.elementRef.nativeElement.querySelector('.Contact_Made');
-    //   this.Contact_Made = elementContact.className.split(" ").at(0).split("_").join(" ");
-    //   const elementOffer = this.elementRef.nativeElement.querySelector('.Offer_Sent');
-    //   this.Offer_Sent = elementOffer.className.split(" ").at(0).split("_").join(" ");
-    //   const elementGetting = this.elementRef.nativeElement.querySelector('.Getting_Ready');
-    //   this.Getting_Ready = elementGetting.className.split(" ").at(0).split("_").join(" ");
-    // },1000);
   }
 }
 
